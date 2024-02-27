@@ -1,11 +1,15 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "icons8-wave-100.png",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }

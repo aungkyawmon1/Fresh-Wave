@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleDetailVC" customModule="Fresh_Wave" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="61j-vr-xyl">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="340.66666666666669"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csp-ql-K1G">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyv-lC-acJ">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1298"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z0n-cT-OeT">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="1298"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDR-v0-Ah8">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="340.66666666666669"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86P-im-zCj">
+                                                    <rect key="frame" x="0.0" y="238.66666666666663" width="393" height="102"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yuf-Og-ZYO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="102"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The plastic water bottle industry is booming. Here’s why that’s a huge problem" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmE-Zn-Zxa">
+                                                                    <rect key="frame" x="20" y="8" width="353" height="86"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="colorTransparent30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Yuf-Og-ZYO" secondAttribute="trailing" id="OmM-eY-KvX"/>
+                                                        <constraint firstItem="Yuf-Og-ZYO" firstAttribute="top" secondItem="86P-im-zCj" secondAttribute="top" id="WG8-zM-ha1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Yuf-Og-ZYO" secondAttribute="bottom" id="dvG-hx-fNz"/>
+                                                        <constraint firstItem="Yuf-Og-ZYO" firstAttribute="leading" secondItem="86P-im-zCj" secondAttribute="leading" id="veW-at-KJh"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="86P-im-zCj" secondAttribute="trailing" id="7zR-fW-CqP"/>
+                                                <constraint firstItem="86P-im-zCj" firstAttribute="leading" secondItem="RDR-v0-Ah8" secondAttribute="leading" id="IS0-Q9-AWY"/>
+                                                <constraint firstAttribute="bottom" secondItem="86P-im-zCj" secondAttribute="bottom" id="TtA-2V-yH0"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QR-CW-b98">
+                                            <rect key="frame" x="0.0" y="340.66666666666669" width="393" height="957.33333333333326"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="80X-eh-aRq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="957.33333333333337"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January, 12 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMw-ui-vFQ">
+                                                            <rect key="frame" x="20" y="7.9999999999999982" width="353" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruW-yc-xcY">
+                                                            <rect key="frame" x="20" y="36.333333333333314" width="353" height="913"/>
+                                                            <mutableString key="text">CNN
+ — 
+The bottled water industry is a juggernaut. More than 1 million bottles of water are sold every minute around the world and the industry shows no sign of slowing down, according to a new report. Global sales of bottled water are expected to nearly double by 2030.Groundwater extracted to help fill billions of plastic bottles a year poses a potential threat to drinking water resources and feeds the world’s plastic pollution crisis, while the industry’s growth helps distract attention and resources away from funding the public-water infrastructure desperately needed in many countries, according to the report.Groundwater extracted to help fill billions of plastic bottles a year poses a potential threat to drinking water resources and feeds the world’s plastic pollution crisis, while the industry’s growth helps distract attention and resources away from funding the public-water infrastructure desperately needed in many countries, according to the report.Groundwater extracted to help fill billions of plastic bottles a year poses a potential threat to drinking water resources and feeds the world’s plastic pollution crisis, while the industry’s growth helps distract attention and resources away from funding the public-water infrastructure desperately needed in many countries, according to the report.
+
+But the industry’s enormous global success comes at a huge environmental, climate and social cost, according to the report published Thursday by the United Nations University Institute for Water, Environment and Health, which analyzes the industry’s global impacts.Groundwater extracted to help fill billions of plastic bottles a year poses a potential threat to drinking water resources and feeds the world’s plastic pollution crisis, while the industry’s growth helps distract attention and resources away from funding the public-water infrastructure desperately needed in many countries, according to the report.
+
+Groundwater extracted to help fill billions of plastic bottles a year poses a potential threat to drinking water resources and feeds the world’s plastic pollution crisis, while the industry’s growth helps distract attention and resources away from funding the public-water infrastructure desperately needed in many countries, according to the report.</mutableString>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="80X-eh-aRq" secondAttribute="trailing" id="7eP-x0-gn8"/>
+                                                <constraint firstItem="80X-eh-aRq" firstAttribute="leading" secondItem="5QR-CW-b98" secondAttribute="leading" id="MQH-pJ-rw9"/>
+                                                <constraint firstAttribute="bottom" secondItem="80X-eh-aRq" secondAttribute="bottom" id="MzX-AM-EsW"/>
+                                                <constraint firstItem="80X-eh-aRq" firstAttribute="top" secondItem="5QR-CW-b98" secondAttribute="top" id="ni1-f4-0js"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Z0n-cT-OeT" firstAttribute="leading" secondItem="Oyv-lC-acJ" secondAttribute="leading" id="4pZ-2B-K46"/>
+                                <constraint firstAttribute="bottom" secondItem="Z0n-cT-OeT" secondAttribute="bottom" id="GVh-11-5tP"/>
+                                <constraint firstItem="Z0n-cT-OeT" firstAttribute="top" secondItem="Oyv-lC-acJ" secondAttribute="top" id="N3H-n1-H1S"/>
+                                <constraint firstAttribute="trailing" secondItem="Z0n-cT-OeT" secondAttribute="trailing" id="Vm1-xK-GQu"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Oyv-lC-acJ" firstAttribute="top" secondItem="csp-ql-K1G" secondAttribute="top" id="6Cu-Iw-qNf"/>
+                        <constraint firstAttribute="trailing" secondItem="Oyv-lC-acJ" secondAttribute="trailing" id="Cmm-ks-bI9"/>
+                        <constraint firstAttribute="bottom" secondItem="Oyv-lC-acJ" secondAttribute="bottom" id="IQE-11-3VR"/>
+                        <constraint firstItem="Oyv-lC-acJ" firstAttribute="centerX" secondItem="csp-ql-K1G" secondAttribute="centerX" id="UOM-mx-iLb"/>
+                        <constraint firstItem="Oyv-lC-acJ" firstAttribute="leading" secondItem="csp-ql-K1G" secondAttribute="leading" id="lD1-r8-LIG"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="RDR-v0-Ah8" firstAttribute="height" secondItem="61j-vr-xyl" secondAttribute="height" id="4Cs-xZ-9uy"/>
+                <constraint firstItem="61j-vr-xyl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="AtW-Sw-chd"/>
+                <constraint firstItem="csp-ql-K1G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K9X-mY-Z1i"/>
+                <constraint firstAttribute="bottom" secondItem="csp-ql-K1G" secondAttribute="bottom" id="Odd-na-tw2"/>
+                <constraint firstItem="csp-ql-K1G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RVt-vB-Vau"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="csp-ql-K1G" secondAttribute="trailing" id="SKG-Jq-pK8"/>
+                <constraint firstItem="61j-vr-xyl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="c1U-8A-gBl"/>
+                <constraint firstItem="61j-vr-xyl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eue-W7-DpH"/>
+                <constraint firstItem="61j-vr-xyl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fhG-sn-CsJ"/>
+            </constraints>
+            <point key="canvasLocation" x="-8.3969465648854964" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dummy" width="3000" height="1984"/>
+        <namedColor name="colorTransparent30">
+            <color red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
