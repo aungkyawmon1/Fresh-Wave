@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="Fresh_Wave" customModuleProvider="target">
             <connections>
                 <outlet property="btnLogin" destination="bFL-CW-aKh" id="qBv-xY-aD0"/>
-                <outlet property="lblCreatAnAccount" destination="s06-34-MAy" id="k46-Pf-bVe"/>
+                <outlet property="txtFieldPhoneNo" destination="lqv-EC-uea" id="lNP-PP-w2e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +30,7 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Wld-ay-ZQq">
-                    <rect key="frame" x="20" y="199" width="353" height="185"/>
+                    <rect key="frame" x="20" y="199" width="353" height="140.66666666666663"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YT7-Oa-Zb5">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="74.333333333333329"/>
@@ -47,7 +47,7 @@
                                         <constraint firstAttribute="height" constant="42" id="lJj-1e-lrY"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                             </subviews>
                         </stackView>
@@ -58,12 +58,6 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Login"/>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s06-34-MAy">
-                            <rect key="frame" x="0.0" y="164.66666666666669" width="353" height="20.333333333333343"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                 </stackView>
             </subviews>
@@ -80,7 +74,7 @@
         </view>
     </objects>
     <resources>
-        <image name="icon.appicon" width="50" height="50"/>
+        <image name="icon.appicon" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="colorPrimary">
             <color red="0.094117647058823528" green="0.62745098039215685" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

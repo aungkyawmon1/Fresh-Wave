@@ -11,15 +11,23 @@ import RxSwift
 
 class LoginVC: BaseViewController {
     
+    @IBOutlet weak var txtFieldPhoneNo: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var lblCreatAnAccount: UILabel!
+    
+    private let viewModel: LoginViewModel
+    
+    required init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tapCreatAnAccount = UITapGestureRecognizer(target: self, action: #selector(onTapCreateAnAccount))
-        lblCreatAnAccount.isUserInteractionEnabled = true
-        lblCreatAnAccount.addGestureRecognizer(tapCreatAnAccount)
     }
     
     override func setupUI() {
@@ -28,15 +36,27 @@ class LoginVC: BaseViewController {
     }
     
     override func bindData() {
+        txtFieldPhoneNo.rx.text.map { $0 ?? ""}.bind(to: viewModel.phoneSubject ).disposed(by: disposableBag)
+        
+        viewModel.isValid().map { $0 }.bind(to: btnLogin.rx.isEnabled).disposed(by: disposableBag)
+               
+        viewModel.isValid().map { $0 ? 1.0 : 0.5}.bind(to: btnLogin.rx.alpha).disposed(by: disposableBag)
+        
         btnLogin.rx.tap.bind {[weak self] in
             guard let self = self else { return }
-            self.navigateToVerifyVC()
+            self.viewModel.checkPhoneNumber(txtFieldPhoneNo.text ?? "")
         }.disposed(by: disposableBag)
-    }
+        
+        viewModel.userProfile.subscribe(onNext: {[weak self] response in
+            guard let self = self, let response = response else { return }
+            if response.message ?? "No Phone Number" == "No Phone Number" {
+                self.navigateToCompleteProfile()
+            } else {
+                
+            }
+        }).disposed(by: disposableBag)
+        
     
-// MARK: - onTap
-    @objc func onTapCreateAnAccount() {
-        navigateToRegisterVC()
     }
     
 // MARK: - Route
@@ -47,6 +67,11 @@ class LoginVC: BaseViewController {
     
     private func navigateToRegisterVC() {
         let vc = RegisterVC()
+        pushVCWithAnimation(vc)
+    }
+    
+    private func navigateToCompleteProfile() {
+        let vc = CompleteProfileVC(viewModel: CompleteProfileViewModel(authModel: AuthModelImpl.shared, phoneNo: txtFieldPhoneNo.text ?? ""))
         pushVCWithAnimation(vc)
     }
 

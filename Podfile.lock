@@ -1,6 +1,7 @@
 PODS:
   - AEOTPTextField (1.2.6)
   - Alamofire (5.8.0)
+  - DLLocalNotifications (0.09)
   - Firebase/Core (10.17.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 10.17.0)
@@ -75,6 +76,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.11.6):
     - GoogleUtilities/Logger
   - IQKeyboardManagerSwift (6.5.6)
+  - KeychainAccess (4.2.1)
   - nanopb (2.30909.1):
     - nanopb/decode (= 2.30909.1)
     - nanopb/encode (= 2.30909.1)
@@ -87,19 +89,24 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - Wormholy (1.7.0)
 
 DEPENDENCIES:
   - AEOTPTextField
   - Alamofire (~> 5.5)
+  - DLLocalNotifications
   - Firebase/Core
   - IQKeyboardManagerSwift (= 6.5.6)
+  - KeychainAccess (= 4.2.1)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
+  - Wormholy
 
 SPEC REPOS:
   trunk:
     - AEOTPTextField
     - Alamofire
+    - DLLocalNotifications
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -108,15 +115,18 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - IQKeyboardManagerSwift
+    - KeychainAccess
     - nanopb
     - PromisesObjC
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Wormholy
 
 SPEC CHECKSUMS:
   AEOTPTextField: a275823fde05601c5da7f8fb66aaecb41289b370
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  DLLocalNotifications: 4c81c059c8a890b5a4bf79e5e4d4c8ff26e8500c
   Firebase: f4ac0b02927af9253ae094d23deecf0890da7374
   FirebaseAnalytics: b9284f9fff10157a843e0422e908711f7bf3b9f2
   FirebaseCore: 534544dd98cabcf4bf8598d88ec683b02319a528
@@ -125,12 +135,14 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 4dcddfc7f102825c1c4e6422cb35567b101881a7
   GoogleUtilities: 202e7a9f5128accd11160fb9c19612de1911aa19
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  Wormholy: ab1c8c2f02f58587a0941deb0088555ffbf039a1
 
-PODFILE CHECKSUM: 9df38a1c22fe452c3c125d3189c413cb52cad7db
+PODFILE CHECKSUM: 35192566fe95c471ad40c27480aabb45b081fadf
 
 COCOAPODS: 1.13.0

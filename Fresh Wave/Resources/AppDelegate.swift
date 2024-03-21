@@ -14,6 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+       // UNUserNotificationCenter.current().delegate = self
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, error) in
+            print(error ?? "no un authorization error")
+            guard granted else { return }
+            debugPrint("Granted")
+        }
+        application.registerForRemoteNotifications()
+                
         return true
     }
 

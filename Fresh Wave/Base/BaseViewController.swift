@@ -71,4 +71,8 @@ extension BaseViewController {
         alert.addAction(UIAlertAction(title: title, style: .default))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showMessage(_ message: String, isSuccessfulState: Bool = false) {
+        ToastView.show(message, isSuccessfulState: isSuccessfulState)
+    }
 }

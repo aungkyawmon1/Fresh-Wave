@@ -15,6 +15,7 @@ class BaseViewModel {
     let loadingPublishRelay = PublishRelay<Bool>()
     let isNoInternetPublishRelay = PublishRelay<Bool?>()
     let errorPublishRelay = PublishRelay<String>()
+    let errorObservable = BehaviorRelay<Error?>(value: nil)
     
     private var viewController : BaseViewController?
     
@@ -32,5 +33,33 @@ class BaseViewModel {
         errorPublishRelay.bind {
             viewController?.showAlert(title: "Error", message: $0)
         }.disposed(by: disposableBag)
+        
+        errorObservable.subscribe(onNext: { (error) in
+            
+            viewController?.hideLoading()
+            
+            if let error = error as? ApiError {
+                switch error {
+                case .noConnection:
+                    self.isNoInternetPublishRelay.accept(true)
+                case .sessionExpired:
+                    self.viewController?.showMessage("Session Expired!")
+                case .unauthorized:
+                    self.viewController?.showMessage("Unauthorized!")
+                case .decodingError(_):
+                    self.viewController?.showMessage("Decoding Error!")
+                case .serverError(_):
+                    self.viewController?.showMessage("Server Error!")
+                case .requestTimeOut:
+                    self.viewController?.showMessage("Request Time Out!")
+                case .requestCancel:
+                    self.viewController?.showMessage("Request Error!")
+                case .validationError(_):
+                    self.viewController?.showMessage("Validation Error!")
+                    
+                }
+            }
+            
+        }).disposed(by: disposableBag)
     }
 }

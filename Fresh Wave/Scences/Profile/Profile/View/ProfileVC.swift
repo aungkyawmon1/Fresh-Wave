@@ -14,6 +14,7 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var logOutView: UIView!
     @IBOutlet weak var editAccountSV: UIStackView!
     @IBOutlet weak var orderHistorySV: UIStackView!
+    @IBOutlet weak var setRemainderSV: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,10 @@ class ProfileVC: BaseViewController {
         let tapOrderHistory = UITapGestureRecognizer(target: self, action: #selector(onTapOrderHistory))
         orderHistorySV.isUserInteractionEnabled = true
         orderHistorySV.addGestureRecognizer(tapOrderHistory)
+        
+        let tapSetRemainder = UITapGestureRecognizer(target: self, action: #selector(onTapSetRemainder))
+        setRemainderSV.isUserInteractionEnabled = true
+        setRemainderSV.addGestureRecognizer(tapSetRemainder)
     }
     
     override func setupUI() {
@@ -52,6 +57,11 @@ class ProfileVC: BaseViewController {
     
     @objc func onTapOrderHistory() {
         let vc = OrderHistoryVC()
+        hideTabBarAndPushVC(vc)
+    }
+    
+    @objc func onTapSetRemainder() {
+        let vc = RemainderVC()
         hideTabBarAndPushVC(vc)
     }
 

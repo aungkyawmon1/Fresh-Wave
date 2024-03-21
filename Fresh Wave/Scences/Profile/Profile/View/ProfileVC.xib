@@ -17,6 +17,7 @@
                 <outlet property="helpView" destination="LGN-I3-XOQ" id="AAA-GP-hF6"/>
                 <outlet property="logOutView" destination="pi0-Uo-t3w" id="8xW-5e-DBN"/>
                 <outlet property="orderHistorySV" destination="OQL-Jf-wcU" id="Mbr-6o-tfi"/>
+                <outlet property="setRemainderSV" destination="0bu-9A-aD2" id="Nzv-eP-TLt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -102,11 +103,19 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkW-LB-3ea">
-                                                                            <rect key="frame" x="44" y="27" width="297" height="18"/>
+                                                                            <rect key="frame" x="44" y="27" width="269" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b98-8l-E5l">
+                                                                            <rect key="frame" x="325" y="30" width="16" height="12.333333333333329"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="16" id="8qB-84-gkk"/>
+                                                                                <constraint firstAttribute="width" constant="16" id="N5Q-1D-6Ia"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRm-MJ-Xeh">
@@ -160,11 +169,19 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Water Bottle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsX-Fu-wCg">
-                                                                            <rect key="frame" x="44" y="7" width="297" height="18"/>
+                                                                            <rect key="frame" x="44" y="7" width="269" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NgT-2p-Y0P">
+                                                                            <rect key="frame" x="325" y="9.9999999999999982" width="16" height="12.33333333333333"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="16" id="fS4-gA-Wct"/>
+                                                                                <constraint firstAttribute="width" constant="16" id="uot-5l-mmM"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFr-Ju-PDk">
@@ -218,11 +235,19 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcM-7I-WVu">
-                                                                            <rect key="frame" x="44" y="7" width="297" height="18"/>
+                                                                            <rect key="frame" x="44" y="7" width="269" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9fG-jz-N0h">
+                                                                            <rect key="frame" x="325" y="9.9999999999999982" width="16" height="12.33333333333333"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="16" id="dPg-2r-dre"/>
+                                                                                <constraint firstAttribute="height" constant="16" id="eid-kP-o7n"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNC-hb-B1h">
@@ -276,11 +301,19 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Water Remainder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hei-d0-8s2">
-                                                                            <rect key="frame" x="44" y="7" width="297" height="18"/>
+                                                                            <rect key="frame" x="44" y="7" width="269" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1tY-sh-pNV">
+                                                                            <rect key="frame" x="325" y="9.9999999999999982" width="16" height="12.33333333333333"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="16" id="0Ta-vz-cac"/>
+                                                                                <constraint firstAttribute="height" constant="16" id="2Ot-HV-M4M"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -335,11 +368,19 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSo-aB-Xvb">
-                                                                            <rect key="frame" x="44" y="60.666666666666629" width="297" height="18"/>
+                                                                            <rect key="frame" x="44" y="60.666666666666629" width="269" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ErN-Aw-y7f">
+                                                                            <rect key="frame" x="325" y="63.666666666666643" width="16" height="12.333333333333314"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="16" id="6g5-c6-BTG"/>
+                                                                                <constraint firstAttribute="height" constant="16" id="BoX-z1-PpR"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znd-MH-znR">
@@ -393,11 +434,19 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term &amp; Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7W-MB-vEQ">
-                                                                            <rect key="frame" x="44" y="7" width="297" height="18"/>
+                                                                            <rect key="frame" x="44" y="7" width="269" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n8t-9G-4t8">
+                                                                            <rect key="frame" x="325" y="9.9999999999999982" width="16" height="12.33333333333333"/>
+                                                                            <color key="tintColor" name="AccentColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="16" id="Ea4-Ot-wZo"/>
+                                                                                <constraint firstAttribute="width" constant="16" id="Gx3-F3-IEU"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -508,12 +557,16 @@
     </objects>
     <resources>
         <image name="alarm.fill" catalog="system" width="123" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="clock.fill" catalog="system" width="128" height="123"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="phone.circle.fill" catalog="system" width="128" height="123"/>
         <image name="rectangle.portrait.and.arrow.right.fill" catalog="system" width="128" height="108"/>
         <image name="waterbottle.fill" catalog="system" width="78" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.094117647058823528" green="0.62745098039215685" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="colorPrimary">
             <color red="0.094117647058823528" green="0.62745098039215685" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -521,16 +574,16 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

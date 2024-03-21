@@ -1,8 +1,8 @@
 //
-//  ApiError.swift
-//  Fresh Wave
+//  ApiErroe.swift
+//  Fresh Wave - Agent
 //
-//  Created by Aung Kyaw Mon on 17/02/2024.
+//  Created by Aung Kyaw Mon on 07/03/2024.
 //
 
 import Foundation
@@ -13,6 +13,8 @@ enum ApiError: Error {
     case noConnection
     /// occurs when  acccount is logged in from another device and fetch network data from old devlce.
     case sessionExpired
+    
+    case unauthorized
     /// decoding does not match from API response
     case decodingError(Int)
     /// occurs when something went wrong on backend side
@@ -50,6 +52,8 @@ enum ApiError: Error {
                 return message
             }
             return "Something went wrong."
+        case .unauthorized:
+            return "Unauthorized"
         }
     }
 

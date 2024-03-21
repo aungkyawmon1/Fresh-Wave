@@ -12,7 +12,7 @@ class Api {
     
     /// Computed property that return baseURL from Bundle after decrypted
     static var baseUrl: String {
-        return ""
+        return "http://54.169.160.194/api/auth/"
     }
     
     

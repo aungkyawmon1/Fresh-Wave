@@ -67,13 +67,4 @@ extension EndpointAttribute: Equatable, Hashable {
         return lhs.route == rhs.route
     }
     
-   // static var all = Set<EndpointAttribute>()
-    
-//    static func checkAuth(with endpoint: String) -> Bool {
-//        if let endAtt = all.filter({ $0.route.components(separatedBy: Api.version).last == endpoint }).first {
-//            return endAtt.authed
-//        }
-//        return false
-//    }
-    
 }

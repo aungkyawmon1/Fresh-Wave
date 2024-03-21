@@ -12,4 +12,7 @@ target 'Fresh Wave' do
   pod 'AEOTPTextField'
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
+  pod 'DLLocalNotifications'
+  pod 'KeychainAccess', '4.2.1'
+  pod 'Wormholy'
 end
