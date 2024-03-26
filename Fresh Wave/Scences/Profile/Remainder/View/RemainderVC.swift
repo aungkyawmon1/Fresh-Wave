@@ -36,11 +36,22 @@ class RemainderVC: BaseViewController {
         weekPickerView.delegate = self
     }
     
+    override func setupUI() {
+        let isRemainderOn = Preference.getBool(forKey: .isRemainderOn)
+        remainderSwitch.isOn = isRemainderOn
+        remainderView.isHidden = !isRemainderOn
+    }
+    
     override func bindData() {
         btnCancel.rx.tap.bind {[weak self] in
             guard let self = self else { return }
             updateRemainderView.isHidden = true
             remainderView.isHidden = false
+        }.disposed(by: disposableBag)
+        
+        remainderSwitch.rx.isOn.bind { state in
+            Preference.setValue(state, forKey: .isRemainderOn)
+            self.remainderView.isHidden = !state
         }.disposed(by: disposableBag)
         
         btnUpdate.rx.tap.bind {[weak self] in

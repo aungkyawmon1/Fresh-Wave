@@ -39,8 +39,8 @@ class ProfileVC: BaseViewController {
     
     override func setupUI() {
         title = "Profile"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.largeTitleDisplayMode = .always
         
         editView.layer.cornerRadius = 16.0
         helpView.layer.cornerRadius = 16.0
@@ -53,7 +53,7 @@ class ProfileVC: BaseViewController {
     }
     
     @objc func onTapOrderHistory() {
-        let vc = OrderHistoryVC()
+        let vc = OrderHistoryVC(viewModel: OrderHistoryViewModel(orderModel: OrderModelImpl.shared))
         hideTabBarAndPushVC(vc)
     }
     

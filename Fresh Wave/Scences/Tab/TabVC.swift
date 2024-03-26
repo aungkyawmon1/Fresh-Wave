@@ -10,7 +10,6 @@ import UIKit
 
 class TabVC: UITabBarController {
     
-    
     private var isPaymentProcessed: Bool = false
     
     private let shapeLayer = CAShapeLayer()

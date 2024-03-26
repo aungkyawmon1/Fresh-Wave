@@ -11,6 +11,17 @@ class OrderHistoryVC: BaseViewController {
 
     @IBOutlet weak var tableViewHistory: UITableView!
     
+    private let viewModel: OrderHistoryViewModel
+    
+    required init(viewModel: OrderHistoryViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +34,10 @@ class OrderHistoryVC: BaseViewController {
         tableViewHistory.dataSource = self
         
         tableViewHistory.registerCell(from: OrderHistoryCell.self)
+    }
+    
+    override func bindData() {
+        
     }
     
     //MARK: - Route

@@ -30,7 +30,7 @@ class AppCoordinator {
         let isAuth = Preference.getBool(forKey: .isAuth)
         
         //let root = isAuth ? TabVC().embedInNav() : LoginVC(viewModel: LoginViewModel(authModel: AuthModelImpl.shared)).embedInNav()
-        let root = TabVC().embedInNav()
+        let root = TabVC()
         UIWindow.switchRootView(root)
     }
     
