@@ -44,10 +44,11 @@ class LoginVC: BaseViewController {
         
         btnLogin.rx.tap.bind {[weak self] in
             guard let self = self else { return }
-            self.viewModel.checkPhoneNumber(txtFieldPhoneNo.text ?? "")
+            //self.viewModel.checkPhoneNumber(txtFieldPhoneNo.text ?? "")
+            self.navigateToVerifyVC()
         }.disposed(by: disposableBag)
         
-        viewModel.userProfile.subscribe(onNext: {[weak self] response in
+        viewModel.phoneNumberResponse.subscribe(onNext: {[weak self] response in
             guard let self = self, let response = response else { return }
             if response.message ?? "No Phone Number" == "No Phone Number" {
                 self.navigateToCompleteProfile()
@@ -61,7 +62,7 @@ class LoginVC: BaseViewController {
     
 // MARK: - Route
     private func navigateToVerifyVC() {
-        let vc = VerifyVC()
+        let vc = VerifyVC(viewModel: VerifyViewModel(authModel: AuthModelImpl.shared, phoneNumber: txtFieldPhoneNo.text ?? ""))
         pushVCWithAnimation(vc)
     }
     

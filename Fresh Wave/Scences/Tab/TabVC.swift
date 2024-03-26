@@ -50,7 +50,7 @@ class TabVC: UITabBarController {
     private func setUpViewControllers() {
         viewControllers?.removeAll()
     
-        let home = HomeVC(viewModel: HomeViewModel())
+        let home = HomeVC(viewModel: HomeViewModel(articleModel: ArticleModelImpl.shared))
         let navHome = UINavigationController(rootViewController: home)
         navHome.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
         
@@ -60,7 +60,7 @@ class TabVC: UITabBarController {
         
         viewControllers = [navHome, navProfile]
         
-        addShape()
+    //    addShape()
     
         customTabBar = self.tabBar as? CustomTabBar
         

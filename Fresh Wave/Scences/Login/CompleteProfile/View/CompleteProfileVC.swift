@@ -50,6 +50,7 @@ class CompleteProfileVC: BaseViewController {
 
     
     override func bindData() {
+        
         txtFieldName.rx.text.map { $0 ?? ""}.bind(to: viewModel.nameSubject).disposed(by: disposableBag)
         
         btnMinus.rx.tap.bind {[weak self] in
@@ -85,6 +86,9 @@ class CompleteProfileVC: BaseViewController {
            
         }.disposed(by: disposableBag)
         
+        viewModel.areAllFieldsValid().bind(to: btnRegister.rx.isEnabled ).disposed(by: disposableBag)
+        
+        viewModel.areAllFieldsValid().map({ $0 ? 1.0 : 0.5}).bind(to: btnRegister.rx.alpha ).disposed(by: disposableBag)
         
     }
     

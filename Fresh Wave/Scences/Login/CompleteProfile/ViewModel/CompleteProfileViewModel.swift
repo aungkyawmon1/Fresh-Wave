@@ -13,13 +13,20 @@ class CompleteProfileViewModel: BaseViewModel {
     private let authModel: AuthModel
     
     private let phoneNo: String
-    var userProfile = BehaviorRelay<SuccessResponse?>(value: nil)
-    var nameSubject = BehaviorSubject<String>(value: "")
-    var floorSubject = BehaviorSubject<String>(value: "")
+    let userProfile = BehaviorRelay<SuccessResponse?>(value: nil)
+    var nameSubject = PublishSubject<String?>()
+    var addressSubject = PublishSubject<String?>()
     
     init(authModel: AuthModel, phoneNo: String) {
         self.authModel = authModel
         self.phoneNo = phoneNo
+    }
+    
+    func areAllFieldsValid() -> Observable<Bool> {
+        return Observable.combineLatest(nameSubject, addressSubject ) { name, address in
+            // Ensure all fields are non-empty
+            return !(name?.isEmpty ?? true) && !(address?.isEmpty ?? true)
+        }
     }
     
     func registerCustomer(userName: String, address: String, latidute: String, longtidue: String) {

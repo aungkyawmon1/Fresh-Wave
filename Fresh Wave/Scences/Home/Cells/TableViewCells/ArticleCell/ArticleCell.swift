@@ -14,6 +14,16 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var ivArticlePhoto: UIImageView!
     
+    var articleVO: ArticleVO? {
+        didSet {
+            if let data = articleVO {
+                lblArticleTitle.text = data.title
+                lblDate.text = data.updatedAt
+                lblDesc.text = data.description
+                ivArticlePhoto.setWebImage(with: data.imageURL)
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

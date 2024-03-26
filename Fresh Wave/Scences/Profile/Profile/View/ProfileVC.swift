@@ -45,9 +45,6 @@ class ProfileVC: BaseViewController {
         editView.layer.cornerRadius = 16.0
         helpView.layer.cornerRadius = 16.0
         logOutView.layer.cornerRadius = 16.0
-        editView.dropShadow(opacity: 0.3, radius: 2, width: 0, height: 0)
-        helpView.dropShadow(opacity: 0.3, radius: 2, width: 0, height: 0)
-        logOutView.dropShadow(opacity: 0.3, radius: 2, width: 0, height: 0)
     }
     
     // MARK: - onTap

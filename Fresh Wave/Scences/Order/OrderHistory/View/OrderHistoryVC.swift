@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderHistoryVC: UIViewController {
+class OrderHistoryVC: BaseViewController {
 
     @IBOutlet weak var tableViewHistory: UITableView!
     
@@ -24,13 +24,19 @@ class OrderHistoryVC: UIViewController {
         
         tableViewHistory.registerCell(from: OrderHistoryCell.self)
     }
+    
+    //MARK: - Route
+    func navigateToOrderDetail() {
+        let vc = OrderDetailVC()
+        pushVC(vc)
+    }
 
 }
 
 
 extension OrderHistoryVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        navigateToOrderDetail()
     }
 }
 

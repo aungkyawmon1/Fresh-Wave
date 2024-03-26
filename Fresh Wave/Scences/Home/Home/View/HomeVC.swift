@@ -42,25 +42,27 @@ class HomeVC: BaseViewController {
     }
     
     // MARK: - Route
-    private func navigateToArticleDetailVC() {
-        let vc = ArticleDetailVC()
+    private func navigateToArticleDetailVC(_ articleVO: ArticleVO?) {
+        guard let articleVO = articleVO else { return }
+        let vc = ArticleDetailVC(articleVO: articleVO)
         hideTabBarAndPushVC(vc)
     }
 }
 
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToArticleDetailVC()
+        navigateToArticleDetailVC(viewModel.getArticles(at: indexPath.row))
     }
 }
 
 extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numberOfArticles()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(from: ArticleCell.self, at: indexPath)
+        cell.articleVO = viewModel.getArticles(at: indexPath.row)
         return cell
     }
     

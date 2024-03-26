@@ -21,7 +21,7 @@ class AppCoordinator {
     
     func coordinate(window: UIWindow?) {
        
-        window?.rootViewController = UINavigationController(rootViewController: LoginVC(viewModel: LoginViewModel(authModel: AuthModelImpl.shared)))
+        window?.rootViewController = LaunchVC()
         window?.makeKeyAndVisible()
     }
     
@@ -29,7 +29,8 @@ class AppCoordinator {
     
         let isAuth = Preference.getBool(forKey: .isAuth)
         
-        let root = isAuth ? TabVC().embedInNav() : LoginVC(viewModel: LoginViewModel(authModel: AuthModelImpl.shared)).embedInNav()
+        //let root = isAuth ? TabVC().embedInNav() : LoginVC(viewModel: LoginViewModel(authModel: AuthModelImpl.shared)).embedInNav()
+        let root = TabVC().embedInNav()
         UIWindow.switchRootView(root)
     }
     

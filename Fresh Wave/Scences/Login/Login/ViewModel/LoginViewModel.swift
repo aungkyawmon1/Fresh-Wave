@@ -12,8 +12,8 @@ import RxSwift
 class LoginViewModel: BaseViewModel {
     private let authModel: AuthModel
     
-    var userProfile = BehaviorRelay<SuccessResponse?>(value: nil)
-    var phoneSubject = BehaviorSubject<String>(value: "")
+    let phoneNumberResponse = BehaviorRelay<SuccessResponse?>(value: nil)
+    let phoneSubject = BehaviorSubject<String>(value: "")
     
     init(authModel: AuthModel) {
         self.authModel = authModel
@@ -30,7 +30,7 @@ class LoginViewModel: BaseViewModel {
         authModel.checkPhoneNo(body: body).subscribe(onNext: {[weak self] response in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)
-            self.userProfile.accept(response)
+            self.phoneNumberResponse.accept(response)
         }, onError: { [weak self] error in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)

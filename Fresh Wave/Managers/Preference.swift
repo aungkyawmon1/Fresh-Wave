@@ -15,6 +15,7 @@ enum PreferenceKeys: String {
     case isAuth
     case userInfo
     case isNewUser
+    case authVerificationID
 }
 
 class Preference {

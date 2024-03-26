@@ -6,6 +6,7 @@ target 'Fresh Wave' do
   use_frameworks!
 
   # Pods for Fresh Wave
+  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'version6-xcode13'
   pod 'IQKeyboardManagerSwift', '6.5.6'
   pod 'Alamofire', '~> 5.5'
   pod 'Firebase/Core'
@@ -15,4 +16,7 @@ target 'Fresh Wave' do
   pod 'DLLocalNotifications'
   pod 'KeychainAccess', '4.2.1'
   pod 'Wormholy'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
 end
