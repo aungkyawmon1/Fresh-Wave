@@ -28,10 +28,11 @@ class LoginVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.bindViewModel(in: self)
     }
     
     override func setupUI() {
-        btnLogin.layer.cornerRadius = btnLogin.frame.height / 2
+        btnLogin.layer.cornerRadius = 8
         
     }
     
@@ -44,17 +45,18 @@ class LoginVC: BaseViewController {
         
         btnLogin.rx.tap.bind {[weak self] in
             guard let self = self else { return }
-            //self.viewModel.checkPhoneNumber(txtFieldPhoneNo.text ?? "")
-            self.navigateToVerifyVC()
+            self.viewModel.checkPhoneNumber(txtFieldPhoneNo.text ?? "")
         }.disposed(by: disposableBag)
         
+        viewModel.verifyProfileResponse.subscribe(onNext: {[weak self] state in
+            guard let self = self, let state = state, state else { return }
+            self.navigateToVerifyVC()
+            
+        }).disposed(by: disposableBag)
+        
         viewModel.phoneNumberResponse.subscribe(onNext: {[weak self] response in
-            guard let self = self, let response = response else { return }
-            if response.message ?? "No Phone Number" == "No Phone Number" {
-                self.navigateToCompleteProfile()
-            } else {
-                
-            }
+            guard let self = self, let _ = response else { return }
+            self.navigateToCompleteProfile()
         }).disposed(by: disposableBag)
         
     

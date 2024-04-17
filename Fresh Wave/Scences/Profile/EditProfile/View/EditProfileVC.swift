@@ -1,26 +1,24 @@
 //
-//  CompleteProfileVC.swift
+//  EditProfileVC.swift
 //  Fresh Wave
 //
-//  Created by Aung Kyaw Mon on 17/03/2024.
+//  Created by Aung Kyaw Mon on 14/04/2024.
 //
 
 import UIKit
-import RxCocoa
 
-class CompleteProfileVC: BaseViewController {
+class EditProfileVC: BaseViewController {
 
     @IBOutlet weak var txtFieldName: UITextField!
     @IBOutlet weak var txtFieldAddress: UITextField!
-    @IBOutlet weak var btnRegister: UIButton!
+    @IBOutlet weak var btnUpdate: UIButton!
     @IBOutlet weak var btnAddress: UIButton!
     
-    private let viewModel: CompleteProfileViewModel
+    private let viewModel: EditProfileViewModel
     
-    private var noOfBottole: Int = 1
-    
-    required init(viewModel: CompleteProfileViewModel) {
+    required init(viewModel: EditProfileViewModel) {
         self.viewModel = viewModel
+        
         super.init()
     }
     
@@ -28,17 +26,18 @@ class CompleteProfileVC: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        viewModel.bindViewModel(in: self)
     }
     
     override func setupUI() {
         title = "Register Account"
-        btnRegister.layer.cornerRadius = btnRegister.frame.height / 2.0
+        btnUpdate.layer.cornerRadius = 8.0
+        
+        txtFieldName.text = viewModel.userName
+        txtFieldAddress.text = viewModel.address
     }
 
     
@@ -52,19 +51,19 @@ class CompleteProfileVC: BaseViewController {
             
         }.disposed(by: disposableBag)
         
-        btnRegister.rx.tap.bind {[weak self] in
+        btnUpdate.rx.tap.bind {[weak self] in
             guard let self = self else { return }
             guard let userName = txtFieldName.text, let address = txtFieldAddress.text else { return }
-            viewModel.registerCustomer(userName: userName, address: address)
+            viewModel.updateProfile(userName: userName, address: address)
         }.disposed(by: disposableBag)
         
-        viewModel.areAllFieldsValid().bind(to: btnRegister.rx.isEnabled ).disposed(by: disposableBag)
+        viewModel.areAllFieldsValid().bind(to: btnUpdate.rx.isEnabled ).disposed(by: disposableBag)
         
-        viewModel.areAllFieldsValid().map({ $0 ? 1.0 : 0.5}).bind(to: btnRegister.rx.alpha ).disposed(by: disposableBag)
+        viewModel.areAllFieldsValid().map({ $0 ? 1.0 : 0.5}).bind(to: btnUpdate.rx.alpha ).disposed(by: disposableBag)
         
-        viewModel.userProfile.subscribe(onNext: {[weak self] response in
+        viewModel.updateProfileResponse.subscribe(onNext: {[weak self] response in
             guard let self = self, let _ = response else { return }
-            self.showMessage("Account is successfully registered!", isSuccessfulState: true)
+            self.showMessage("Profile is successfully updated!", isSuccessfulState: true)
             self.popVC()
         }).disposed(by: disposableBag)
         
@@ -80,7 +79,7 @@ class CompleteProfileVC: BaseViewController {
 }
 
 //MARK: - ChooseAddressOnMapDelegate
-extension CompleteProfileVC: ChooseAddressOnMapDelegate {
+extension EditProfileVC: ChooseAddressOnMapDelegate {
     func chooseAddress(addressPlace: String, latitude: Double, longitude: Double) {
         txtFieldAddress.text = addressPlace
         viewModel.addressSubject.onNext(addressPlace)

@@ -14,6 +14,8 @@ enum ApiError: Error {
     /// occurs when  acccount is logged in from another device and fetch network data from old devlce.
     case sessionExpired
     
+    case badRequest
+    
     case unauthorized
     /// decoding does not match from API response
     case decodingError(Int)
@@ -33,6 +35,8 @@ enum ApiError: Error {
             return "No Connection."
         case .sessionExpired:
             return "Session Expired."
+        case .badRequest:
+            return "Bad Request"
         case .decodingError(let code):
             return "StatusCode: \(code) - An error occurs in decoding."
         case .serverError(let code):

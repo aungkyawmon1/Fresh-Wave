@@ -25,7 +25,15 @@ class HomeVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.bindViewModel(in: self)
+        
         setupTableView()
+        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.fetchArticlePosts()
     }
     
     private func setupTableView() {
@@ -39,6 +47,15 @@ class HomeVC: BaseViewController {
         title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    override func bindData() {
+        viewModel.articleListsRelay.subscribe(onNext: { [weak self] articleList in
+            guard let self = self, let articleList = articleList else { return }
+            if !articleList.isEmpty {
+                self.tableViewHome.reloadData()
+            }
+        }).disposed(by: disposableBag)
     }
     
     // MARK: - Route

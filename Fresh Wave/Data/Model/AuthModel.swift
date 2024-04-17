@@ -12,6 +12,8 @@ protocol AuthModel {
     
     func registerCustomer(body: RequestBody) -> Observable<SuccessResponse>
     
+    func updateProfile(body: RequestBody) -> Observable<SuccessResponse>
+    
     func checkPhoneNo(body: RequestBody) -> Observable<SuccessResponse>
     
     func loginWithPhoneNumber(body: RequestBody) -> Observable<LoginResponse>
@@ -25,6 +27,10 @@ class AuthModelImpl: BaseModel, AuthModel {
     
     func registerCustomer(body: RequestBody) -> Observable<SuccessResponse> {
         service.request(endpoint: .registerCustomer(body), response: SuccessResponse.self)
+    }
+    
+    func updateProfile(body: RequestBody) -> Observable<SuccessResponse> {
+        service.request(endpoint: .updateProfile(body), response: SuccessResponse.self)
     }
     
     func checkPhoneNo(body: RequestBody) -> Observable<SuccessResponse> {

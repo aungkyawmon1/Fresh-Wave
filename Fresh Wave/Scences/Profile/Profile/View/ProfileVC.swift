@@ -12,15 +12,34 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var editView: UIView!
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var logOutView: UIView!
+    @IBOutlet weak var lblUsername: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var editAccountSV: UIStackView!
     @IBOutlet weak var orderHistorySV: UIStackView!
     @IBOutlet weak var setRemainderSV: UIStackView!
+    
+    private let viewModel: ProfileViewModel
+    
+    required init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+        
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        lblUsername.text = viewModel.userName
+        lblAddress.text = viewModel.address
     }
     
     private func setupGesture() {
@@ -35,13 +54,18 @@ class ProfileVC: BaseViewController {
         let tapSetRemainder = UITapGestureRecognizer(target: self, action: #selector(onTapSetRemainder))
         setRemainderSV.isUserInteractionEnabled = true
         setRemainderSV.addGestureRecognizer(tapSetRemainder)
+        
+        let tapLogout = UITapGestureRecognizer(target: self, action: #selector(onTapLogout))
+        logOutView.isUserInteractionEnabled = true
+        logOutView.addGestureRecognizer(tapLogout)
+        
     }
     
     override func setupUI() {
         title = "Profile"
 //        navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationItem.largeTitleDisplayMode = .always
-        
+       
         editView.layer.cornerRadius = 16.0
         helpView.layer.cornerRadius = 16.0
         logOutView.layer.cornerRadius = 16.0
@@ -49,7 +73,8 @@ class ProfileVC: BaseViewController {
     
     // MARK: - onTap
     @objc func onTapEditAccount() {
-        
+        let vc = EditProfileVC(viewModel: EditProfileViewModel(authModel: AuthModelImpl.shared))
+        hideTabBarAndPushVC(vc)
     }
     
     @objc func onTapOrderHistory() {
@@ -60,6 +85,10 @@ class ProfileVC: BaseViewController {
     @objc func onTapSetRemainder() {
         let vc = RemainderVC()
         hideTabBarAndPushVC(vc)
+    }
+    
+    @objc func onTapLogout() {
+        doLogOut()
     }
 
 }

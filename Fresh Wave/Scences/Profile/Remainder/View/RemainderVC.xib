@@ -31,10 +31,10 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpM-VN-A6u">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="278.66666666666669"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="578.66666666666663"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xSE-hb-9Q2">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="278.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="578.66666666666663"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mX-za-WD8">
                                             <rect key="frame" x="20" y="8" width="353" height="128"/>
@@ -42,7 +42,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mq2-Rc-OH8">
                                                     <rect key="frame" x="16" y="16" width="321" height="96"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zda-II-hjY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remainder On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zda-II-hjY">
                                                             <rect key="frame" x="0.0" y="38" width="272" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -113,17 +113,17 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMC-Lg-9lZ">
-                                            <rect key="frame" x="20" y="270.66666666666669" width="353" height="72"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMC-Lg-9lZ">
+                                            <rect key="frame" x="20" y="282.66666666666669" width="353" height="288.00000000000006"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w8r-NK-xIi">
-                                                    <rect key="frame" x="16" y="16" width="321" height="40"/>
+                                                    <rect key="frame" x="16" y="16" width="321" height="256"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMC-sw-57x">
-                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="216"/>
                                                         </pickerView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-tw-mFh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="40"/>
+                                                            <rect key="frame" x="0.0" y="215.99999999999994" width="321" height="40"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-Ss-vAJ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="40"/>

@@ -78,7 +78,7 @@ class ApiService {
     private func createDataRequest(endpoint: Endpoint) -> DataRequest {
         var newHeader = endpoint.headers
         if endpoint.attribute.authed {
-            newHeader?.add(.authorization(bearerToken: ""))
+            newHeader?.add(.authorization(bearerToken: KeychainService.shared.getAccessToken() ?? ""))
         }
         return session.request(
             endpoint.attribute.url,
@@ -92,8 +92,9 @@ class ApiService {
     
     private func createDataUpload(endpoint: Endpoint, formData: @escaping (MultipartFormData) -> Void) -> UploadRequest {
         var newHeader = endpoint.headers
+    
         if endpoint.attribute.authed {
-            newHeader?.add(.authorization(bearerToken: ""))
+            newHeader?.add(.authorization(bearerToken: KeychainService.shared.getAccessToken() ?? ""))
         }
         return session.upload(
             multipartFormData: formData,
@@ -109,6 +110,8 @@ class ApiService {
             let statusCode = responseData.response?.statusCode ?? 0
             if statusCode == 401 {
                 observer.onError(ApiError.sessionExpired)
+            } else if statusCode == 400 {
+                observer.onError(ApiError.badRequest)
             }
             switch responseData.result {
             case .success(let data):

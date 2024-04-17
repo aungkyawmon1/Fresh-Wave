@@ -39,4 +39,17 @@ class KeychainService {
             print("KeychainSaveError:- with key \(key), error:- \(error).")
         }
     }
+    
+    func remove(key: String) {
+        do {
+            try keychain.remove(key)
+        } catch let error {
+            print("KeychainRemoveError:- with key \(key), error:- \(error).")
+        }
+    }
+    
+    func format() {
+        keychain.allKeys().forEach { remove(key: $0) }
+    }
+    
 }

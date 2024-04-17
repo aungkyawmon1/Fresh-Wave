@@ -43,13 +43,15 @@ class BaseViewModel {
                 case .noConnection:
                     self.isNoInternetPublishRelay.accept(true)
                 case .sessionExpired:
+                    self.viewController?.doLogOut()
                     self.viewController?.showMessage("Session Expired!")
                 case .unauthorized:
                     self.viewController?.showMessage("Unauthorized!")
                 case .decodingError(_):
                     self.viewController?.showMessage("Decoding Error!")
-                case .serverError(_):
-                    self.viewController?.showMessage("Server Error!")
+                case .serverError(let code):
+                    debugPrint(code)
+                    self.viewController?.showMessage("Server Error!\(code)")
                 case .requestTimeOut:
                     self.viewController?.showMessage("Request Time Out!")
                 case .requestCancel:
@@ -57,6 +59,8 @@ class BaseViewModel {
                 case .validationError(_):
                     self.viewController?.showMessage("Validation Error!")
                     
+                case .badRequest:
+                    debugPrint("")
                 }
             }
             

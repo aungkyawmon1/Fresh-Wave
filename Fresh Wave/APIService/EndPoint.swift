@@ -47,7 +47,7 @@ enum Endpoint {
             return .init(path: "user-profile", method: .get, body: nil, encoding: .none, authed: true)
             
         case .articles(let body):
-            return .init(path: "posts", method: .get, body: body, encoding: .json, authed: true)
+            return .init(path: "posts", method: .get, body: body, encoding: .query, authed: true)
             
         case .customerLogin(let body):
             return .init(path: "customerLogin", method: .post, body: body, encoding: .json, authed: false)
@@ -62,10 +62,10 @@ enum Endpoint {
             return .init(path: "nearestAgent", method: .get, body: nil, encoding: .none, authed: true)
             
         case .updateProfile(let body):
-            return .init(path: "update-profile", method: .post, body: body, encoding: .json, authed: false)
+            return .init(path: "update-profile", method: .post, body: body, encoding: .json, authed: true)
             
         case .checkPhone(let body):
-            return .init(path: "check-phone", method: .post, body: body, encoding: .json, authed: false)
+            return .init(path: "checkPhone", method: .post, body: body, encoding: .json, authed: false)
             
             
      

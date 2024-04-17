@@ -18,6 +18,7 @@ class OrderHistoryViewModel: BaseViewModel {
     }
     
     func getOrderHistory() {
+        self.loadingPublishRelay.accept(false)
         orderModel.getOrderHistory().subscribe(onNext: {[weak self] response in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)

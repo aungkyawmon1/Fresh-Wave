@@ -54,16 +54,20 @@ extension BaseViewController {
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func popVC() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Loading & Alert
 extension BaseViewController {
     func showLoading() {
-        
+        LoadingIndicator.shared.startLoading()
     }
     
     func hideLoading() {
-        
+        LoadingIndicator.shared.stopLoading()
     }
     
     func showAlert(title : String , message : String) {
@@ -75,4 +79,12 @@ extension BaseViewController {
     func showMessage(_ message: String, isSuccessfulState: Bool = false) {
         ToastView.show(message, isSuccessfulState: isSuccessfulState)
     }
+    
+    func doLogOut() {
+        KeychainService.shared.format()
+        Preference.setValue(false, forKey: .isAuth)
+        Preference.removeUserInfo()
+        AppCoordinator.shared.reroute()
+    }
+    
 }

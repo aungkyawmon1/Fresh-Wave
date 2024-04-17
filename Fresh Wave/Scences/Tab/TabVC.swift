@@ -50,14 +50,14 @@ class TabVC: UITabBarController {
         viewControllers?.removeAll()
     
         let home = HomeVC(viewModel: HomeViewModel(articleModel: ArticleModelImpl.shared))
-        let navHome = UINavigationController(rootViewController: home)
-        navHome.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+     //  let navHome = UINavigationController(rootViewController: home)
+        home.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
         
-        let profile = ProfileVC()
-        let navProfile = UINavigationController(rootViewController: profile)
-        navProfile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 3)
+        let profile = ProfileVC(viewModel: ProfileViewModel())
+      //  let navProfile = UINavigationController(rootViewController: profile)
+        profile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 3)
         
-        viewControllers = [navHome, navProfile]
+        viewControllers = [home, profile]
         
     //    addShape()
     

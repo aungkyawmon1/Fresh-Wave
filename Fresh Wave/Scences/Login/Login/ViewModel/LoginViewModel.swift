@@ -13,6 +13,7 @@ class LoginViewModel: BaseViewModel {
     private let authModel: AuthModel
     
     let phoneNumberResponse = BehaviorRelay<SuccessResponse?>(value: nil)
+    let verifyProfileResponse = BehaviorRelay<Bool?>(value: nil)
     let phoneSubject = BehaviorSubject<String>(value: "")
     
     init(authModel: AuthModel) {
@@ -34,6 +35,14 @@ class LoginViewModel: BaseViewModel {
         }, onError: { [weak self] error in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)
+            if let error = error as? ApiError {
+                switch error {
+                case .badRequest:
+                    self.verifyProfileResponse.accept(true)
+                default:
+                    debugPrint("")
+                }
+            }
             self.errorObservable.accept(error)
         }).disposed(by: disposableBag)
         

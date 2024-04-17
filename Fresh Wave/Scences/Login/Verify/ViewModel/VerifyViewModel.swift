@@ -32,7 +32,7 @@ class VerifyViewModel: BaseViewModel {
     }
     
     func loginWithPhoneNumber() {
-        let body: RequestBody = ["phone_no": "09753264227"]
+        let body: RequestBody = ["phone_no": phoneNumber]
         self.loadingPublishRelay.accept(true)
         authModel.loginWithPhoneNumber(body: body).subscribe(onNext: { [weak self] data in
             guard let self = self else { return }
@@ -52,7 +52,7 @@ class VerifyViewModel: BaseViewModel {
         self.loadingPublishRelay.accept(true)
         //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
         PhoneAuthProvider.provider()
-          .verifyPhoneNumber("+959753264227", uiDelegate: nil) { verificationID, error in
+          .verifyPhoneNumber("+66\(phoneNumber)", uiDelegate: nil) { verificationID, error in
               self.loadingPublishRelay.accept(false)
               if let _ = error {
                   self.showOTPMessage.accept("OTP Code Error")
@@ -81,6 +81,7 @@ class VerifyViewModel: BaseViewModel {
     
     private func manageTokenResponse(_ response: LoginResponse) {
         KeychainService.shared.saveAccessToken(response.accessToken ?? "")
+        debugPrint("Access token", response.accessToken ?? "")
         Preference.setValue(true, forKey: .isAuth)
         guard let agentVO = response.user else { return }
         Preference.saveAgentInfo(agentVO)

@@ -20,7 +20,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-gK-O3a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="342"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="DxV-2f-6yY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DxV-2f-6yY">
                                 <rect key="frame" x="20" y="8" width="280" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="IEu-Of-3Jw"/>
@@ -66,10 +66,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="ivArticlePhoto" destination="DxV-2f-6yY" id="Kq3-rJ-Aq4"/>
+                <outlet property="lblArticleTitle" destination="1Oa-cv-uhe" id="ERb-n2-dKx"/>
+                <outlet property="lblDate" destination="FbM-QV-ZWx" id="Jbp-w0-Gtj"/>
+                <outlet property="lblDesc" destination="9Mk-xq-SOJ" id="NBH-yX-rDB"/>
+            </connections>
             <point key="canvasLocation" x="91.603053435114504" y="80.281690140845072"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="dummy" width="3000" height="1984"/>
-    </resources>
 </document>
