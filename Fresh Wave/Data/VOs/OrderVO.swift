@@ -27,4 +27,19 @@ struct OrderVO: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+    
+    var orderStatus: String {
+        let currentStatus = status ?? 0
+        if currentStatus == 2 {
+            return "Accepted"
+        } else if currentStatus == 4 {
+            return "Delivering"
+        } else if currentStatus == 5 {
+            return "Delivered"
+        } else if currentStatus == 3 {
+            return "Canceled"
+        } else {
+            return "Ordering"
+        }
+    }
 }

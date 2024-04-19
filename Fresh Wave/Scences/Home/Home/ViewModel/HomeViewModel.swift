@@ -10,6 +10,8 @@ import RxRelay
 
 class HomeViewModel: BaseViewModel {
     private let articleModel: ArticleModel
+   
+   
     
     let articleListsRelay = BehaviorRelay<[ArticleVO]?>(value: nil)
     private var currentPage: Int = 1
@@ -40,6 +42,8 @@ class HomeViewModel: BaseViewModel {
             self.errorObservable.accept(error)
         }).disposed(by: disposableBag)
     }
+    
+ 
     
     func hasMorePage() -> Bool {
         return currentPage * pageSize < totalPage

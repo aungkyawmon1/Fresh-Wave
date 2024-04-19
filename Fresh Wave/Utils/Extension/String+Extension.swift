@@ -14,4 +14,8 @@ extension String {
         return boundingBox.height
     }
     
+    func stringToInt() -> Int {
+        Int(self) ?? 0
+    }
+    
 }

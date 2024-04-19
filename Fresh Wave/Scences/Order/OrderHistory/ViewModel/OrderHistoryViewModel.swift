@@ -11,7 +11,7 @@ import RxRelay
 class OrderHistoryViewModel: BaseViewModel {
     private let orderModel: OrderModel
     
-    let orderHistoryList = BehaviorRelay<OrderHistoryVO?>(value: nil)
+    let orderHistoryList = BehaviorRelay<[OrderVO]?>(value: nil)
     
     init(orderModel: OrderModel) {
         self.orderModel = orderModel
@@ -22,10 +22,18 @@ class OrderHistoryViewModel: BaseViewModel {
         orderModel.getOrderHistory().subscribe(onNext: {[weak self] response in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)
-            orderHistoryList.accept(response)
+            orderHistoryList.accept(response.data)
         }, onError: {[weak self] error in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)
         }).disposed(by: disposableBag)
+    }
+    
+    func noOfOrder() -> Int {
+        orderHistoryList.value?.count ?? 0
+    }
+    
+    func getOrderVO(at index: Int) -> OrderVO? {
+        orderHistoryList.value?[index]
     }
 }

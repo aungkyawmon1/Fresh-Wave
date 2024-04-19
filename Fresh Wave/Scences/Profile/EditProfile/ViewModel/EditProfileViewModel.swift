@@ -13,8 +13,8 @@ class EditProfileViewModel: BaseViewModel {
     
     private let authModel: AuthModel
     
-    private var _latitude: String? = Preference.getAgentInfo()?.latitude
-    private var _longitude: String? = Preference.getAgentInfo()?.longitude
+    private var _latitude: String? = Preference.getUserInfo()?.latitude
+    private var _longitude: String? = Preference.getUserInfo()?.longitude
     
     let updateProfileResponse = BehaviorRelay<SuccessResponse?>(value: nil)
     var nameSubject = PublishSubject<String?>()
@@ -32,7 +32,7 @@ class EditProfileViewModel: BaseViewModel {
     }
     
     func updateProfile(userName: String, address: String) {
-        let body: RequestBody = ["username": userName, "phone_no": Preference.getAgentInfo()?.phoneNo ?? "", "address": address, "latitude": _latitude ?? "", "longitude": _longitude ?? ""]
+        let body: RequestBody = ["username": userName, "phone_no": Preference.getUserInfo()?.phoneNo ?? "", "address": address, "latitude": _latitude ?? "", "longitude": _longitude ?? ""]
         loadingPublishRelay.accept(true)
         authModel.updateProfile(body: body).subscribe(onNext: { [weak self] response in
             guard let self = self else { return }
@@ -52,10 +52,10 @@ class EditProfileViewModel: BaseViewModel {
     }
     
     var userName: String? {
-        return Preference.getAgentInfo()?.username
+        return Preference.getUserInfo()?.username
     }
     
     var address: String? {
-        return Preference.getAgentInfo()?.address
+        return Preference.getUserInfo()?.address
     }
 }

@@ -11,10 +11,10 @@ class ProfileViewModel: BaseViewModel {
     
     
     var userName: String? {
-        return Preference.getAgentInfo()?.username
+        return Preference.getUserInfo()?.username
     }
     
     var address: String? {
-        return Preference.getAgentInfo()?.address
+        return Preference.getUserInfo()?.address
     }
 }

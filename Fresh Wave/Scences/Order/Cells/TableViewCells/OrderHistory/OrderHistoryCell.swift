@@ -9,6 +9,18 @@ import UIKit
 
 class OrderHistoryCell: UITableViewCell {
 
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+    
+    var orderVO: OrderVO? {
+        didSet {
+            if let orderVO = orderVO {
+                lblPrice.text = "\(orderVO.totalPrice ?? "0") MMK"
+                lblDate.text = "Ordered on \(orderVO.createdDate ?? "")"
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

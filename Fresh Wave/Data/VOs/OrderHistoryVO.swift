@@ -9,6 +9,6 @@ import Foundation
 
 // MARK: - Welcome
 struct OrderHistoryVO: Codable {
-    let data: [ArticleVO]?
+    let data: [OrderVO]?
     let pagination: PaginationVO?
 }

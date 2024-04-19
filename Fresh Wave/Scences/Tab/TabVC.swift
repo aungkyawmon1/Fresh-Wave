@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import RxSwift
 
 class TabVC: UITabBarController {
     
@@ -16,11 +16,17 @@ class TabVC: UITabBarController {
     
     private var customTabBar: CustomTabBar?
     
+    private let viewModel: TabViewModel = TabViewModel(orderModel: OrderModelImpl.shared)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpColors()
         setUpViewControllers()
+        
+        viewModel.fetchNearestAgent()
     }
+    
     
     private func setUpColors() {
         customTabBar = { () -> CustomTabBar in
@@ -39,6 +45,7 @@ class TabVC: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.fetchOrderStatus()
 //        navigationController?.setNavigationBarHidden(true, animated: true)
 //        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
@@ -64,14 +71,39 @@ class TabVC: UITabBarController {
         customTabBar = self.tabBar as? CustomTabBar
         
         customTabBar?.didTapButton = { [weak self] in
-            guard let _ = self else { return }
-            debugPrint("Hello => Tap")
+            guard let self = self else { return }
+            if let orderVO = Preference.getCurrentOrderVO() {
+                self.navigateToOrderDetail(orderVO: orderVO)
+            } else {
+                self.navigateToCartVC()
+            }
         }
         
         
     }
     
+    private func navigateToCartVC() {
+        let vc = CartVC(viewModel: CartViewModel(orderModel: OrderModelImpl.shared))
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
     
+    private func navigateToOrderDetail(orderVO: OrderVO) {
+       
+        let vc = OrderDetailVC(orderVO: orderVO)
+        vc.modalPresentationStyle = .formSheet
+        self.present(vc, animated: true)
+    }
+    
+    
+}
+
+extension TabVC: CartViewDelegate {
+    func orderSuccess() {
+        self.dismiss(animated: true)
+        guard let orderVO = Preference.getCurrentOrderVO() else { return }
+        navigateToOrderDetail(orderVO: orderVO)
+    }
 }
 
 

@@ -83,8 +83,8 @@ class VerifyViewModel: BaseViewModel {
         KeychainService.shared.saveAccessToken(response.accessToken ?? "")
         debugPrint("Access token", response.accessToken ?? "")
         Preference.setValue(true, forKey: .isAuth)
-        guard let agentVO = response.user else { return }
-        Preference.saveAgentInfo(agentVO)
+        guard let userVO = response.user else { return }
+        Preference.saveUserInfo(userVO)
     }
     
 }

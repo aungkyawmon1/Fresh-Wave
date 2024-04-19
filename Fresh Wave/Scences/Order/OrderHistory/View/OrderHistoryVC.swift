@@ -27,6 +27,8 @@ class OrderHistoryVC: BaseViewController {
 
         // Do any additional setup after loading the view.
         setupTableView()
+        
+        viewModel.getOrderHistory()
     }
     
     private func setupTableView() {
@@ -42,8 +44,8 @@ class OrderHistoryVC: BaseViewController {
     
     //MARK: - Route
     func navigateToOrderDetail() {
-        let vc = OrderDetailVC()
-        pushVC(vc)
+//        let vc = OrderDetailVC()
+//        pushVC(vc)
     }
 
 }
@@ -57,7 +59,7 @@ extension OrderHistoryVC: UITableViewDelegate {
 
 extension OrderHistoryVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.noOfOrder()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

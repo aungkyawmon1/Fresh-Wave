@@ -22,12 +22,11 @@ enum Endpoint {
     case nearestAgent
     case updateProfile(RequestBody)
     case checkPhone(RequestBody)
-    
+    case orderStatus
   
     /// Create header for network service
     var headers: HTTPHeaders? {
         [
-            
             "Accept": "application/json",
             "Content-Type": "application/json"
         ]
@@ -53,7 +52,7 @@ enum Endpoint {
             return .init(path: "customerLogin", method: .post, body: body, encoding: .json, authed: false)
             
         case .placeOrder(let body):
-            return .init(path: "placeOrder", method: .post, body: body, encoding: .json, authed: false)
+            return .init(path: "placeOrder", method: .post, body: body, encoding: .json, authed: true)
             
         case .customerOrderHistory:
             return .init(path: "customerOrderHistory", method: .get, body: nil, encoding: .none, authed: true)
@@ -67,7 +66,8 @@ enum Endpoint {
         case .checkPhone(let body):
             return .init(path: "checkPhone", method: .post, body: body, encoding: .json, authed: false)
             
-            
+        case .orderStatus:
+            return .init(path: "order-status", method: .get, encoding: .none, authed: true)
      
         }
         

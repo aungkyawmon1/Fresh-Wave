@@ -28,8 +28,6 @@ class HomeVC: BaseViewController {
         viewModel.bindViewModel(in: self)
         
         setupTableView()
-        
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +61,10 @@ class HomeVC: BaseViewController {
         guard let articleVO = articleVO else { return }
         let vc = ArticleDetailVC(articleVO: articleVO)
         hideTabBarAndPushVC(vc)
+    }
+    
+    private func navigateToCartVC() {
+        
     }
 }
 
