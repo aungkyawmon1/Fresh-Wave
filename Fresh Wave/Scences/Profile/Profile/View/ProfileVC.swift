@@ -17,6 +17,8 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var editAccountSV: UIStackView!
     @IBOutlet weak var orderHistorySV: UIStackView!
     @IBOutlet weak var setRemainderSV: UIStackView!
+    @IBOutlet weak var callCenterSV: UIStackView!
+    @IBOutlet weak var termAndPolicySV: UIStackView!
     
     private let viewModel: ProfileViewModel
     
@@ -55,6 +57,14 @@ class ProfileVC: BaseViewController {
         setRemainderSV.isUserInteractionEnabled = true
         setRemainderSV.addGestureRecognizer(tapSetRemainder)
         
+        let tapCallCenter = UITapGestureRecognizer(target: self, action: #selector(onTapCallCenter))
+        callCenterSV.isUserInteractionEnabled = true
+        callCenterSV.addGestureRecognizer(tapCallCenter)
+        
+        let tapTermAndPolicy = UITapGestureRecognizer(target: self, action: #selector(onTapTermAndPolicy))
+        termAndPolicySV.isUserInteractionEnabled = true
+        termAndPolicySV.addGestureRecognizer(tapTermAndPolicy)
+        
         let tapLogout = UITapGestureRecognizer(target: self, action: #selector(onTapLogout))
         logOutView.isUserInteractionEnabled = true
         logOutView.addGestureRecognizer(tapLogout)
@@ -89,6 +99,19 @@ class ProfileVC: BaseViewController {
     
     @objc func onTapLogout() {
         doLogOut()
+    }
+    
+    @objc func onTapCallCenter() {
+        let vc = CallCenterVC()
+        hideTabBarAndPushVC(vc)
+    }
+    
+    @objc func onTapTermAndPolicy() {
+        if let url = URL(string: "some url") {
+            UIApplication.shared.open(url)
+            
+        }
+
     }
 
 }

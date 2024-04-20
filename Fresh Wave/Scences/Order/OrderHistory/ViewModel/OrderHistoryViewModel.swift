@@ -26,6 +26,7 @@ class OrderHistoryViewModel: BaseViewModel {
         }, onError: {[weak self] error in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)
+            self.errorObservable.accept(error)
         }).disposed(by: disposableBag)
     }
     

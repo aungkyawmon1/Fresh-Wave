@@ -16,7 +16,7 @@ class EditProfileViewModel: BaseViewModel {
     private var _latitude: String? = Preference.getUserInfo()?.latitude
     private var _longitude: String? = Preference.getUserInfo()?.longitude
     
-    let updateProfileResponse = BehaviorRelay<SuccessResponse?>(value: nil)
+    let updateProfileResponse = BehaviorRelay<UserVO?>(value: nil)
     var nameSubject = PublishSubject<String?>()
     let addressSubject = PublishSubject<String?>()
     
@@ -36,14 +36,27 @@ class EditProfileViewModel: BaseViewModel {
         loadingPublishRelay.accept(true)
         authModel.updateProfile(body: body).subscribe(onNext: { [weak self] response in
             guard let self = self else { return }
-            self.loadingPublishRelay.accept(false)
-            self.updateProfileResponse.accept(response)
+            self.getProfile()
         }, onError: { [weak self] error in
             guard let self = self else { return }
             self.loadingPublishRelay.accept(false)
             self.errorObservable.accept(error)
         }).disposed(by: disposableBag)
         
+    }
+    
+    func getProfile() {
+        self.loadingPublishRelay.accept(true)
+        authModel.getUserProfile().subscribe(onNext: {[weak self] userProfile in
+            guard let self = self else { return }
+            self.loadingPublishRelay.accept(false)
+            Preference.saveUserInfo(userProfile)
+            self.updateProfileResponse.accept(userProfile)
+        }, onError: { [weak self] error in
+            guard let self = self else { return }
+            self.loadingPublishRelay.accept(false)
+            self.errorObservable.accept(error)
+        }).disposed(by: disposableBag)
     }
     
     func setLocation(lat: Double, lon: Double) {

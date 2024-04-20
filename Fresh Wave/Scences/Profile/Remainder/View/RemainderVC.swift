@@ -18,10 +18,11 @@ class RemainderVC: BaseViewController {
     @IBOutlet weak var lblEdit: UILabel!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnUpdate: UIButton!
+    @IBOutlet weak var lblRemainderDesc: UILabel!
     
     private let arr: [String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
     
-    private var selectedRow: Int = 0
+    private var selectedRow: Int = Preference.getInteger(forKey: .remainderDate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,8 @@ class RemainderVC: BaseViewController {
         let isRemainderOn = Preference.getBool(forKey: .isRemainderOn)
         remainderSwitch.isOn = isRemainderOn
         remainderView.isHidden = !isRemainderOn
+        
+        lblRemainderDesc.text = "Notification will be notified at  9 AM at every \(arr[selectedRow])"
     }
     
     override func bindData() {
@@ -52,6 +55,11 @@ class RemainderVC: BaseViewController {
         remainderSwitch.rx.isOn.bind { state in
             Preference.setValue(state, forKey: .isRemainderOn)
             self.remainderView.isHidden = !state
+            if state {
+                self.makeAlarm()
+            } else {
+                self.cancelAlarm()
+            }
         }.disposed(by: disposableBag)
         
         btnUpdate.rx.tap.bind {[weak self] in
@@ -59,6 +67,8 @@ class RemainderVC: BaseViewController {
             updateRemainderView.isHidden = true
             remainderView.isHidden = false
             showMessage("Updated!", isSuccessfulState: true)
+            lblRemainderDesc.text = "Notification will be notified at  9 AM at every \(arr[selectedRow])"
+            makeAlarm()
         }.disposed(by: disposableBag)
     }
     
@@ -68,54 +78,23 @@ class RemainderVC: BaseViewController {
        
     }
     
-    
-    @IBAction func onClickNOtify(_ snder: UIButton) {
-        // The date you would like the notification to fire at
-        debugPrint("Click")
-        let triggerDate = Date().addingTimeInterval(3)
-
+    private func makeAlarm()  {
         var dateComponents = DateComponents()
-        dateComponents.weekday = 7
-        dateComponents.hour = 9
-        dateComponents.minute = 00
+        dateComponents.weekday = selectedRow + 1
+        dateComponents.hour = 11
+        dateComponents.minute = 54
 //        let firstNotification = DLNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: triggerDate)
         let firstNotification = DLNotification(identifier: "freshWaveNotification", alertTitle: "Order Today", alertBody: " 20-liter water with Fresh Wave now!", fromDateComponents: dateComponents , repeatInterval: .weekly)
 
         let scheduler = DLNotificationScheduler()
+        scheduler.cancelAlllNotifications()
         scheduler.scheduleNotification(notification: firstNotification)
         scheduler.scheduleAllNotifications()
-        
     }
     
-    private func makeAlarm()  {
-        let content = UNMutableNotificationContent()
-        content.title = "Weekly Staff Meeting"
-        content.body = "Every Tuesday at 2pm"
-        
-        // Configure the recurring date.
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-
-
-        dateComponents.weekday = 7  // Tuesday
-        dateComponents.hour = 21  // 14:00 hours
-        dateComponents.minute = 3
-           
-        // Create the trigger as a repeating event.
-        let trigger = UNCalendarNotificationTrigger(
-                 dateMatching: dateComponents, repeats: true)
-        
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-
-        // Schedule the request with the system.
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request, withCompletionHandler: {(error) in
-            if error != nil {
-                debugPrint(error.debugDescription)
-            }
-        })
+    private func cancelAlarm() {
+        let scheduler = DLNotificationScheduler()
+        scheduler.cancelAlllNotifications()
     }
 
 }
@@ -140,6 +119,7 @@ extension RemainderVC : UIPickerViewDelegate{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedRow = row + 1
+        selectedRow = row
+        Preference.setValue(selectedRow, forKey: .remainderDate)
     }
 }

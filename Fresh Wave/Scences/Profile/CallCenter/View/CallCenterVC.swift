@@ -9,21 +9,24 @@ import UIKit
 
 class CallCenterVC: UIViewController {
 
+    @IBOutlet weak var ivCallNow: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let tapCallNow = UITapGestureRecognizer(target: self, action: #selector(onTapCallNow))
+        ivCallNow.isUserInteractionEnabled = true
+        ivCallNow.addGestureRecognizer(tapCallNow)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc func onTapCallNow() {
+        if let  CallURL:NSURL = NSURL(string:"tel://09753264227") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL( CallURL as URL)) {
+                application.open(CallURL as URL)
+            }
+        }
     }
-    */
 
 }

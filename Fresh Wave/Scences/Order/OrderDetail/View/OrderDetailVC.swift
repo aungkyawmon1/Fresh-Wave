@@ -20,6 +20,7 @@ class OrderDetailVC: BaseViewController {
     @IBOutlet weak var lblTotalPrice: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblOrderStatus: UILabel!
+    @IBOutlet weak var agentLineView: UIView!
     
     private let orderVO: OrderVO
     
@@ -46,11 +47,12 @@ class OrderDetailVC: BaseViewController {
         lblPrice.text = "\(orderVO.price ?? "0") MMK"
         lblFloorPrice.text = "\(orderVO.floorPrice ?? "0") MMK"
         
-        let orderStatus = orderVO.orderStatus
-        if orderStatus == "5" {
+        if orderVO.status ?? 5 == 5 {
             agentView.isHidden = true
+            agentLineView.isHidden = true
             
         } else {
+            agentLineView.isHidden = false
             agentView.isHidden = false
             agentName.text = Preference.getNearestAgentInfo()?.username
             agentAddress.text = Preference.getNearestAgentInfo()?.address

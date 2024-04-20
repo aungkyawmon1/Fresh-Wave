@@ -49,11 +49,20 @@ class HomeViewModel: BaseViewModel {
         return currentPage * pageSize < totalPage
     }
     
+    func readyToPaginate(by index: Int) -> Bool {
+        return hasMorePage() && (index == numberOfArticles() - 1)
+    }
+    
     func fetchNextArticlePosts() {
         if hasMorePage() {
             currentPage += 1
             fetchArticlePosts()
         }
+    }
+    
+    func refreshArticle() {
+        currentPage = 1
+        fetchArticlePosts()
     }
     
     

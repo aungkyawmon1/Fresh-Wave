@@ -15,6 +15,7 @@
                 <outlet property="btnCancel" destination="Smd-Ss-vAJ" id="bbe-0f-6QP"/>
                 <outlet property="btnUpdate" destination="1JG-cT-LhJ" id="eFy-a7-C5k"/>
                 <outlet property="lblEdit" destination="ofS-vE-HMu" id="TPn-NY-HoF"/>
+                <outlet property="lblRemainderDesc" destination="ys4-KR-jLK" id="hIb-9K-QKz"/>
                 <outlet property="remainderSwitch" destination="xEy-on-pEu" id="gBs-2F-u4B"/>
                 <outlet property="remainderView" destination="JoN-fX-XBW" id="dIs-rH-P3e"/>
                 <outlet property="updateRemainderView" destination="dMC-Lg-9lZ" id="nqh-Lk-tT5"/>
@@ -31,10 +32,10 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpM-VN-A6u">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="578.66666666666663"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="278.66666666666669"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xSE-hb-9Q2">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="578.66666666666663"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="278.66666666666669"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mX-za-WD8">
                                             <rect key="frame" x="20" y="8" width="353" height="128"/>
@@ -113,17 +114,17 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMC-Lg-9lZ">
-                                            <rect key="frame" x="20" y="282.66666666666669" width="353" height="288.00000000000006"/>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMC-Lg-9lZ">
+                                            <rect key="frame" x="20" y="270.66666666666669" width="353" height="72"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w8r-NK-xIi">
-                                                    <rect key="frame" x="16" y="16" width="321" height="256"/>
+                                                    <rect key="frame" x="16" y="16" width="321" height="40"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMC-sw-57x">
-                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="216"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="0.0"/>
                                                         </pickerView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-tw-mFh">
-                                                            <rect key="frame" x="0.0" y="215.99999999999994" width="321" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="40"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-Ss-vAJ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="40"/>

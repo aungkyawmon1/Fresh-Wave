@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Fresh_Wave" customModuleProvider="target">
             <connections>
+                <outlet property="callCenterSV" destination="PZJ-tO-WaF" id="JVP-ld-Xs4"/>
                 <outlet property="editAccountSV" destination="cZR-3B-xfd" id="2pj-fg-cl1"/>
                 <outlet property="editView" destination="tfw-Em-ETV" id="q3g-Rl-vSH"/>
                 <outlet property="helpView" destination="LGN-I3-XOQ" id="AAA-GP-hF6"/>
@@ -20,6 +21,7 @@
                 <outlet property="logOutView" destination="pi0-Uo-t3w" id="8xW-5e-DBN"/>
                 <outlet property="orderHistorySV" destination="OQL-Jf-wcU" id="Mbr-6o-tfi"/>
                 <outlet property="setRemainderSV" destination="0bu-9A-aD2" id="Nzv-eP-TLt"/>
+                <outlet property="termAndPolicySV" destination="r8k-t7-qrP" id="Qy2-q7-DX2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

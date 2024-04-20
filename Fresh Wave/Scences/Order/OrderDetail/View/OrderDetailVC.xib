@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailVC" customModule="Fresh_Wave" customModuleProvider="target">
             <connections>
                 <outlet property="agentAddress" destination="UjR-zI-WgM" id="lUv-Og-f3R"/>
+                <outlet property="agentLineView" destination="BUK-tZ-oMu" id="swF-hO-GwJ"/>
                 <outlet property="agentName" destination="UMM-pF-gta" id="44b-Yo-bRY"/>
                 <outlet property="agentView" destination="OmH-46-aN2" id="kZy-OU-xrl"/>
                 <outlet property="lblAddress" destination="s9g-JH-fmH" id="HXO-hy-lRJ"/>

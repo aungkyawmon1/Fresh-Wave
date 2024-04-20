@@ -21,6 +21,7 @@ enum PreferenceKeys: String {
     case currentOrderNumber
     case currentOrder
     case floorNumber
+    case remainderDate
 }
 
 class Preference {

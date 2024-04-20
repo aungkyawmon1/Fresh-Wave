@@ -13,6 +13,8 @@ class HomeVC: BaseViewController {
 
     private let viewModel: HomeViewModel
     
+    lazy private var refreshControl = UIRefreshControl()
+    
     required init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init()
@@ -26,6 +28,8 @@ class HomeVC: BaseViewController {
         super.viewDidLoad()
 
         viewModel.bindViewModel(in: self)
+        
+        setupRefreshControl()
         
         setupTableView()
     }
@@ -41,6 +45,13 @@ class HomeVC: BaseViewController {
         tableViewHome.registerCell(from: ArticleCell.self)
     }
     
+    private func setupRefreshControl() {
+        refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl.tintColor = UIColor(named: "colorPrimary600")
+        tableViewHome.addSubview(refreshControl)
+    }
+    
     override func setupUI() {
         title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -54,6 +65,11 @@ class HomeVC: BaseViewController {
                 self.tableViewHome.reloadData()
             }
         }).disposed(by: disposableBag)
+    }
+    
+    @objc private func refresh() {
+        viewModel.refreshArticle()
+        refreshControl.endRefreshing()
     }
     
     // MARK: - Route
@@ -83,6 +99,14 @@ extension HomeVC: UITableViewDataSource {
         let cell = tableView.dequeueCell(from: ArticleCell.self, at: indexPath)
         cell.articleVO = viewModel.getArticles(at: indexPath.row)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if viewModel.readyToPaginate(by: indexPath.row) {
+            viewModel.fetchNextArticlePosts()
+        }
+        
     }
     
 }

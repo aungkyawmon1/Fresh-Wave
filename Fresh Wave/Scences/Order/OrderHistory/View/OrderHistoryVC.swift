@@ -28,6 +28,8 @@ class OrderHistoryVC: BaseViewController {
         // Do any additional setup after loading the view.
         setupTableView()
         
+        viewModel.bindViewModel(in: self)
+        
         viewModel.getOrderHistory()
     }
     
@@ -39,13 +41,16 @@ class OrderHistoryVC: BaseViewController {
     }
     
     override func bindData() {
-        
+        viewModel.orderHistoryList.subscribe(onNext: {[weak self] response in
+            guard let self = self else { return }
+            self.tableViewHistory.reloadData()
+        }).disposed(by: disposableBag)
     }
     
     //MARK: - Route
-    func navigateToOrderDetail() {
-//        let vc = OrderDetailVC()
-//        pushVC(vc)
+    func navigateToOrderDetail(orderVO: OrderVO) {
+        let vc = OrderDetailVC(orderVO: orderVO)
+        pushVC(vc)
     }
 
 }
@@ -53,7 +58,8 @@ class OrderHistoryVC: BaseViewController {
 
 extension OrderHistoryVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToOrderDetail()
+        guard let orderVO = viewModel.getOrderVO(at: indexPath.row) else { return }
+        navigateToOrderDetail(orderVO: orderVO)
     }
 }
 
@@ -64,6 +70,7 @@ extension OrderHistoryVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(from: OrderHistoryCell.self, at: indexPath)
+        cell.orderVO = viewModel.getOrderVO(at: indexPath.row)
         return cell
     }
     
