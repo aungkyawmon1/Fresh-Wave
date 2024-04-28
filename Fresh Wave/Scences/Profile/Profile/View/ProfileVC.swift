@@ -107,7 +107,7 @@ class ProfileVC: BaseViewController {
     }
     
     @objc func onTapTermAndPolicy() {
-        if let url = URL(string: "some url") {
+        if let url = URL(string: "https://university-magazine-group-8.click/terms") {
             UIApplication.shared.open(url)
             
         }

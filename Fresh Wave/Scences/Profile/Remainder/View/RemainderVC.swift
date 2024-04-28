@@ -81,8 +81,8 @@ class RemainderVC: BaseViewController {
     private func makeAlarm()  {
         var dateComponents = DateComponents()
         dateComponents.weekday = selectedRow + 1
-        dateComponents.hour = 11
-        dateComponents.minute = 54
+        dateComponents.hour = 9
+        dateComponents.minute = 0
 //        let firstNotification = DLNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: triggerDate)
         let firstNotification = DLNotification(identifier: "freshWaveNotification", alertTitle: "Order Today", alertBody: " 20-liter water with Fresh Wave now!", fromDateComponents: dateComponents , repeatInterval: .weekly)
 
